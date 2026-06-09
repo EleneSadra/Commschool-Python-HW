@@ -1,0 +1,9 @@
+# 1 მოცემულია სიტყვა "ABCD". დაბეჭდე ყველა შესაძლო ვარიანტი და **დაითვალე** რამდენია სულ რაოდენობრივად (უნდა დააბრუნო რიცხვი)
+# word = "ABCD"
+
+from itertools import permutations
+word = "ABCD"
+result = list(permutations(word))
+
+print(result)
+print(f"Quantity - {len(result)}")

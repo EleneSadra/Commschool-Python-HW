@@ -1,0 +1,13 @@
+# 6 მიიღე ყველა კომბინაცია "XYZ"-ის სიმბოლოებით სიგრძე 1-დან 3-მდე
+# მაგალითი: X, Y, Z, XY, XZ, YZ, XYZ უნდა მივიღოთ მსგავსი შედეგი.
+
+from itertools import permutations, combinations
+
+for i in range(1, 4):
+    mylist = ["X", "Y", "Z"]
+    combination = list(combinations(mylist, i))
+    result = []
+for i in range(1, 4):
+    for combo in combinations(mylist, i):
+        result.append("".join(combo))
+print(", ".join(result))

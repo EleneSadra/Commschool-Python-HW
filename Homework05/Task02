@@ -1,0 +1,24 @@
+# 2 იპოვე მომდევნო კვირის პირველი სამშაბათი, საწყისი თარიღი არის დღევანდელი დღე (ხელით არ გაწეროთ თარიღი)
+
+from datetime import datetime, date, timedelta
+
+today = date.today()
+
+weekday_today = int(today.strftime("%w"))
+
+if weekday_today == 1:
+    next_tuesday = today + timedelta(days = 8)
+elif weekday_today == 2:
+    next_tuesday = today + timedelta(days = 7)
+elif weekday_today == 3:
+    next_tuesday = today + timedelta(days = 6)
+elif weekday_today == 4:
+    next_tuesday = today + timedelta(days = 5)
+elif weekday_today == 5:
+    next_tuesday = today + timedelta(days = 4)
+elif weekday_today == 6:
+    next_tuesday = today + timedelta(days = 3)
+elif weekday_today == 7:
+    next_tuesday = today + timedelta(days = 2)
+
+print(next_tuesday)
