@@ -1,0 +1,233 @@
+#1 შექმენი გენერატორი, რომელიც ტექსტის თითოეულ სიმბოლოს აბრუნებს.
+
+
+word = "CODE"
+
+def character_generator(word):
+    for char in word:
+        yield char
+
+w = character_generator(word)
+
+for char in character_generator(word):
+    print(char)
+
+
+# #2 დაწერე პროგრამა რომელშიც მომხმარებელი შემოიყვანს მხოლოდ ციფრებს, ლოგიკა
+# უნდა იყოს შემდეგი: გვაქვს კონკრეტული ლისტი და მომხმარებელი უნდა მიწვდეს
+# შემოყვანილი ციფრით რომელიმე ელემენტს, თუ ვერ მიწვდება პროგრამა შეცდომაზე არ
+# უნდა გავიდეს.
+
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+while True:
+    try:
+        x = int(input("Input: "))
+        print(arr[x])
+        break
+    except ValueError:
+        print("INVALID Input. Enter a valid number")
+    except IndexError:
+        print("Index nonexistent")
+
+#3 შექმენი დეკორატორი, რომელიც ითვლის რამდენჯერ გამოიძახეს ფუნქცია.
+# მაგალითი:
+# @counter
+# def say():
+# print("Hi")
+# say()
+# say()
+# გამოძახება: 1
+# Hi
+# გამოძახება: 2
+
+def my_decorator(func):
+    count = [0]
+    def wrapper():
+        count[0] += 1
+        print(f"Times called out: {count}")
+        func()
+    return wrapper
+
+@my_decorator
+def say_hi():
+    print("hi")
+
+say_hi()
+
+# #4 მომხმარებელს უნდა დავუსვათ 5 მათემატიკური შეკითხვა, თითოეულზე სწორი
+# პასუხი არის 10 ქულა ხოლო არასწორი 0 ქულა, მიღებული პასუხებიდან უნდა
+# განვსაზღვროთ რამდენი ქულა აიღო მომხმარებელმა, შევქმნათ ლოფ ფაილი
+# game.log და შევინახოთ ყველა ქულა. ბოლოს გამოვუტანოთ მიღებული შედეგი
+
+import logging
+
+logging.basicConfig(filename='game.log', level=logging.DEBUG,
+                    format='%(asctime)s - %(message)s')
+
+questions = [
+    ("2 + 2", 4),
+    ("5 * 3", 15),
+    ("10 - 7", 3),
+    ("8 / 2", 4),
+    ("3 ** 2", 9)
+]
+
+score = 0
+
+for question, answer in questions:
+    user_answer = int(input(f"{question} = "))
+    if user_answer == answer:
+        score += 10
+        logging.info(f"Correct! Points: 10")
+    else:
+        logging.info(f"Wrong! Points: 0")
+
+print(f"Final Points: {score}")
+logging.info(f"Final Points: {score}")
+
+# #5 შექმენით ფაილი quiz.log, შექმენით გენერატორი რომელშიც შენახული იქნება
+# 5 შეკითხვა და სათითაოდ დააბრუნებს, მომხმარებელმა უნდა უპასუხოს ყველა
+# შეკითხვას და პასუხები შეინახეთ ლოგ ფაილში.
+
+
+import logging
+
+logging.basicConfig(filename='quiz.log', level=logging.DEBUG,
+                    format='%(asctime)s - %(message)s')
+
+def quiz_generator():
+    yield "If you could instantly master any skill, what would it be and why?"
+    yield "What's a food you thought you'd hate but ended up loving?"
+    yield "If you could spend one day in any historical period, which would you choose?"
+    yield "What's the most useful thing you've learned this year?"
+    yield "If animals could talk, which species do you think would be the rudest?"
+
+quiz = quiz_generator()
+
+for question in quiz:
+    answer = input(f"{question}: ")
+    logging.info(f"Question: {question} - Answer: {answer}")
+
+
+
+# #6 შექმენი პროგრამა სადაც მომხმარებელი ეჯიბრება კომპიუტერს: ქვა/ბადე/
+# მაკრატელის თამაშში, თამაში არის სამამდე, კომპიუტერი შემთხვევითობის
+
+# პრინციპით ირჩევს ამ სამიდან 1-ს , ასევე ტერმინალში მომხმარებელი წერს ერთ-
+# ერთს, ერთნაირის შემთხვევაში ფრეა და გრძელდება თამაში 3-მდე, ვინც პირველი
+
+# მიაღწევს 3-ს გამოიტანე შეტყობინება .....-მ გაიმარჯვა, ყველა ნათამაშები ხელი
+# უნდა შეინახოო ლოგირების ფაილში.
+
+import random, logging
+
+logging.basicConfig(filename='game.log', level=logging.DEBUG,
+                    format='%(asctime)s - %(message)s')
+
+listi = ("Rock", "Paper", "Scissors")
+wins = {"Rock": "Scissors", "Scissors": "Paper", "Paper": "Rock"}
+
+comp_points = 0
+player_points = 0
+
+while comp_points < 3 and player_points < 3:
+    comp_choose = random.choice(listi)
+    player_choose = input("Enter Your Choice (Rock/Paper/Scissors): ").capitalize()
+
+    if comp_choose == player_choose:
+        print("Tie!")
+    elif wins[comp_choose] == player_choose:
+        comp_points += 1
+        print(f"Comp Wins! {comp_choose} vs {player_choose}")
+    else:
+        player_points += 1
+        print(f"You Win! {comp_choose} vs {player_choose}")
+
+    logging.info(f"Comp: {comp_choose} - Player: {player_choose} - Score: {comp_points}-{player_points}")
+
+if comp_points == 3:
+    print(f"Comp Won! Comp -{comp_points}; You - {player_points}")
+else:
+    print(f"You Won! Comp - {comp_points}; You - {player_points}")
+
+
+# #7 პროგრამა კამათელზე - გვყავს ორი მომხმარებელი Gamer 1 & Gamer 2,
+# თითოეულს უნდა გავაგორებინოთ კამათელი თითო თითოჯერ, თუ ფრეა ვიმეორებთ,
+# სხვა შემთხვევაში მოგებულ მოთამაშეს უნდა ვკითხოთ კიდევ 1 შანსს მისცემს თუ
+# არა წაგებულს და კიდევ გააგორებს თუ არა, თუ უარია ვამთავრებთ, თუ თანახმაა
+# იგივე ლოგიკა უნდა გაგრძელდეს სანამ უარს არ იტყვის ერთ-ერთი.
+
+import random, logging
+
+logging.basicConfig(filename='dice.log', level=logging.DEBUG,
+                    format='%(asctime)s - %(message)s')
+
+game_over = False
+
+while True:
+    gamer1_randomizer = random.randint(1, 6)
+    gamer2_randomizer = random.randint(1, 6)
+    
+    print(f"Gamer 1: {gamer1_randomizer} - Gamer 2: {gamer2_randomizer}")
+    logging.info(f"Gamer 1: {gamer1_randomizer} - Gamer 2: {gamer2_randomizer}")
+
+    if gamer1_randomizer == gamer2_randomizer:
+        print("Tie! Rolling again...")
+    elif gamer1_randomizer > gamer2_randomizer:
+        while True:
+            choice = input("Gamer 1 Won! Give another chance? (Y/N): ").upper()
+            if choice == "Y":
+                break
+            elif choice == "N":
+                print("Gamer 1 Wins!")
+                game_over = True
+                break
+            else:
+                print("Invalid input!")
+    else:
+        while True:
+            choice = input("Gamer 2 Won! Give another chance? (Y/N): ").upper()
+            if choice == "Y":
+                break
+            elif choice == "N":
+                print("Gamer 2 Wins!")
+                game_over = True
+                break
+            else:
+                print("Invalid input!")
+    
+    if game_over:
+        break
+
+# #8 შექმენი პროგრამა სადაც გექნება გადაცემული 10 სიტყვა ლისტში და ლოგიკა
+# არის შემდეგი, ამ სიტყვებიდან 2 ცალს ირჩევ შემთხვევითობის პრინციპით და
+# თითოეული სიტყვიდან უნდა ამოაკლო 2 ასო და მომხმარებელს აჩვენო მსგავსი
+# ფორმით და უთხრა რომ გამოიცნოს სიტყვა და ჩაწეროს სრულად, თუ გამოიცნო
+# “გამარჯვება” თუ ვერ გამოიცნო ვერცერთი სიტყვა “დამარცხდი”, ერთის
+# გამოცნობის შემთხვევაში “50%”
+import random
+
+words = ["ananasi", "kompoti", "banani", "kosmosi", "veraperi",
+         "simgera", "gveleshapi", "datvi", "navti", "alubali"]
+
+chosen = random.sample(words, 2)
+correct = 0
+
+for word in chosen:
+    indices = random.sample(range(len(word)), 2)
+    hidden = list(word)
+    for i in indices:
+        hidden[i] = "_"
+    print("Guess the word: " + "".join(hidden))
+    
+    guess = input("Your answer: ")
+    if guess == word:
+        correct += 1
+
+if correct == 2:
+    print("You Won! ʕ•́ᴥ•̀ʔっ♡")
+elif correct == 1:
+    print("50% (ㆆ_ㆆ)")
+else:
+    print("You Lost! ( ˘︹˘ )")
