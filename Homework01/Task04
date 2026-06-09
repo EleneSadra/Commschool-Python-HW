@@ -1,0 +1,6 @@
+#Problem 4
+birth_year = 2004 
+name = "ელენე" 
+surname = "სადრაძე"
+current_year = 2026
+print("მე " + name + " " + surname + " დავიბადე " + str(birth_year) + " წელს შესაბამისად ვარ " + str((current_year - birth_year)) + " წლის")

@@ -1,0 +1,5 @@
+#Problem 5 -- Floating-point storage error
+Yes = 119
+No = 82
+print ("Yes: " + str(Yes) + " = " + str(round((float(Yes / (Yes + No)) * 100), 2)) + "%")
+print ("No: " + str(No) + " = " + str(round((float(No / (Yes + No)) * 100), 2)) + "%")

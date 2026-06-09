@@ -1,0 +1,5 @@
+#Problem 1
+var1 = int
+var2 = int
+var3 = bool
+print(var1, var2, var3)
