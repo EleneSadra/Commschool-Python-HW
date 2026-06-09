@@ -1,0 +1,17 @@
+#7 ტექსტის ფილტრი
+# მომხმარებელი შეჰყავს ტექსტი.
+# ამოცანა: პროგრამამ უნდა წაშალოს ყველა ციფრი და სიმბოლო, დატოვოს მხოლოდ ასოები და
+# სივრცეები.
+
+
+choose = input("input your text: ")
+char = []
+result = []
+
+
+for char in choose:
+   if char.isalpha() or char == " ":
+       result.append(char)
+
+
+print("".join(result))

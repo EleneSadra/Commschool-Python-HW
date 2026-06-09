@@ -1,0 +1,11 @@
+# #10 მომხმარებელს შეჰყავს წინადადება, ამოცანა: გამოიანგარიშე თითოეული სიტყვის სიგრძე და
+# დააბრუნე dictionary
+# მაგალითად: "Python is fun" → {"Python": 6, "is": 2, "fun": 3}
+
+
+choose = input("Enter your sentence: ")
+words = [n.strip() for n in choose.split(" ")]
+
+count = {L: len(L) for L in words}
+
+print(count)

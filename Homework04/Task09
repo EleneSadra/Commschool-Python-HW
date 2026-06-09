@@ -1,0 +1,16 @@
+# #9 მომხმარებელი შეჰყავს ნებისმიერი ტექსტი, მოძებნე, რომელი სიტყვა მეორდება ტექსტში ყველაზე
+# მეტჯერ. მაგ: "Python is great and python is easy" → ყველაზე ხშირია
+# "python". თუ ორი ან მეტი სიტყვაა ტოლი, დააბრუნე ყველა.
+
+
+choose = input("Enter your sentence: ")
+words = [n.strip().lower() for n in choose.split(" ")]
+
+
+max_count = max([words.count(n) for n in words])
+
+
+result = "; ".join(set([w for w in words if words.count(w) == max_count]))
+
+
+print(f"Duplicate word(s): {result}. Each mentioned {max_count} times")
