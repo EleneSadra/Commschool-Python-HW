@@ -1,0 +1,12 @@
+def calculate(x, y):
+    print(f"{x} + {y} = {x + y}")
+    print(f"{x} - {y} = {x - y}")
+    print(f"{x} * {y} = {x * y}")
+    print(f"{x} / {y} = {x / y}")
+    print(f"{x} // {y} = {x // y}")
+    print(f"{x} % {y} = {x % y}")
+    
+x = int(input("x: "))
+y = int(input("y: "))
+
+calculate(x, y)

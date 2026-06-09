@@ -1,0 +1,7 @@
+choose = input("შეიყვანეთ სასურველი წინადადება:")
+
+def word_counter(choose):
+    sentence = choose.split()
+    print(f"სიტყვების რაოდენობა წინადადებაში შეადგენს {len(sentence)}-ს")
+
+word_counter(choose)

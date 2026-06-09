@@ -1,0 +1,17 @@
+import random
+words = ["მარჯვენა", "მარცხენა"]
+correct_answers = []
+correct = 0
+
+for i in range(1, 6):
+    secret_word = random.choice(words)
+    correct_answers.append(secret_word)
+    guess = input("გამოიცანი: ")
+    if guess == "exit":
+        break
+    elif guess == secret_word :
+        correct += 1
+if correct == 5 :
+    print("ყოჩაღ, შენ 5-ივე ცდაზე სწორად გამოიცანი")
+else :
+    print(f"შენ დამარცხდი :( სწორია: {correct_answers}")
