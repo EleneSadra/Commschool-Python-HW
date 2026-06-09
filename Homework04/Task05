@@ -1,0 +1,23 @@
+# 5 ზედმეტსახელების გენერატორი
+# მომხმარებელს შემოაქვს მხოლოდ ერთი სიტყვა(სხვა შემთხვევები დაბლოკე) და შენ სთავაზობ 5
+# ზედმეტსახელს ამ სიტყვასთან კავშირში.
+
+
+import random
+import string
+choose = input("Input your word: ")
+char = []
+rand = ["Master", "Super", "Mega", 11]
+
+
+for char in choose:
+   if " " in choose:
+       print("INVALID INPUT. Insert only one word.")
+   else:
+       prefixes = ["Master", "Super", "Mega", "Dark", "Ultra", "Shadow", "Fire"]
+       suffixes = ["Star", "Pro", "Boss", "King", "Legend", "99", "X"]
+      
+       print("Your nicknames:")
+       for i in range(5):
+           nickname = random.choice(prefixes) + choose.capitalize() + random.choice(suffixes)
+           print(f"{i+1}. {nickname}")

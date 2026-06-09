@@ -1,0 +1,45 @@
+# 6 სორტირება
+# მომხმარებელს შემოჰყავს რიცხვები თითო გამოტოვებით, (ულიმიტოდ რამდენიც უნდა) პროგრამა
+# სთავაზობს როგორ უნდა რომ დაუსორტირდეს აღნიშნული: კლებადობით, ზრდადობით, random-ად,
+# მხოლოდ უნიკალური მონაცემები დატოვოს. რომელსაც აირჩევს უნდა გამოვიდეს ზუსტად ისე
+# დალაგებული სია.
+
+
+import random
+import string
+char = []
+
+
+
+
+
+
+while True:
+   choose = input("Input numbers: ")
+   numbers = choose.split()
+
+
+   valid = True
+   for x in numbers:
+       if not x.isdigit():
+           print(f"'{x}' is not a valid number! try again.")
+           valid = False
+           break
+      
+   if valid:
+       numbers = [int(x) for x in numbers]
+       choose_order =  input("Choose order (asc/desc/rand/unique): ")
+
+
+       if choose_order == "asc":
+           print(f"Ascending - {sorted(numbers)}")
+       elif choose_order == "desc":
+           print(f"Descending - {sorted(numbers, reverse = True)}")
+       elif choose_order == "rand":
+           random.shuffle(numbers)
+           print(f"Random - {numbers}")
+       elif choose_order == "unique":
+           print(f"Unique - {sorted(set(numbers))}")
+       else:
+           print("Invalid Input. Try Again")
+       break
