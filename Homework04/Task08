@@ -1,0 +1,30 @@
+# #8 პირამიდა
+# მომხმარებელი შეჰყავს რიცხვების სია (მაგ. 3,5,7,2).
+# ამოცანა: შექმენი “პირამიდა”, სადაც ყოველი ახალი რიგი ზემოთაა წინა ორი რიცხვის ჯამი.
+# 3 5 7 2
+# 8 12 9
+# 20 21
+# 41
+
+
+
+
+while True:
+   choose = input("Input numbers: ")
+   numbers = [n.strip() for n in choose.split(",")]
+   result = []
+   char = []
+
+
+   if not all(char.isdigit() for char in numbers):
+       print("Invalid Character. Try again")
+   else:
+       numbers = [int(n) for n in numbers]
+       print(" ".join(str(n) for n in numbers))
+       while len(numbers) > 1:
+           new_row = []
+           for i in range(len(numbers) - 1):
+               new_row.append(numbers[i] + numbers[i+1])
+           numbers = new_row
+           print(" ".join(str(n) for n in numbers))
+       break
