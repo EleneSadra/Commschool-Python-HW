@@ -1,0 +1,10 @@
+width = input("სიგანე: ")
+length = input("სიმაღლე: ")
+
+def cube(width, length):
+        for x in range(int(length)):
+            for x in range(int(width)):
+                print("#", end="")
+            print()
+
+cube(width, length)

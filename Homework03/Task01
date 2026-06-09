@@ -1,0 +1,12 @@
+ხმოვნები = ("ა", "ე", "ი", "ო", "უ")
+თანხმოვნები = "ბ გ დ ვ ზ თ კ ლ მ ნ პ ჟ რ ს ტ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჯ ჰ".split()
+
+while True:
+    choose = input("შემოიტანე სიმბოლო: ")
+    if choose in ხმოვნები:
+        print(f"{choose} ხმოვანია")
+    elif choose in თანხმოვნები:
+        print(f"{choose} თანხმოვანია")
+    else : 
+        print("არასწორი სიმბოლო") 
+    continue

@@ -1,0 +1,11 @@
+#in_str("John and Jane Doe", "J")
+#>>> Character "J" in given string: 2 times
+
+string = input("შეიყვანეთ წინადადება: ")
+symbol = input("რომელი სიმბოლოს დათვლა გსურთ? ")
+
+def counter(string, symbol):
+    print(f"წინადადებაში - {string}, სიმბოლო - {symbol}")
+    print(f"სიმბოლო {symbol} წინადადებაში გვხვდება {string.count(symbol)}-ჯერ")
+
+counter(string, symbol)

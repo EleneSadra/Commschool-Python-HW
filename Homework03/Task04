@@ -1,0 +1,7 @@
+while True:
+    width = input("სიგანე: ")
+    length = input("სიმაღლე: ")
+    for i in range(int(length)):
+        for i in range(int(width)):
+            print("#", end="")
+        print()

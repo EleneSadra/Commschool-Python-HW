@@ -1,0 +1,17 @@
+import random
+words = "ბაყაყი მურაბა ტროლეიბუსი ჟირაფი კარტოფილი მულტფილმი ღრუბელი ჩურჩხელა ფანქარი ლოკოკინა ბუშტი ვულკანი ზაზუნა ხინკალი კომპიუტერი თოვლი პეპელა".split()
+
+secret_word = random.choice(words)
+attempts = 0
+
+while True : 
+    guess = input("გამოიცანი სიტყვა: ")
+    attempts += 1
+    if guess == "exit":
+        break
+    elif guess == secret_word :
+        print(f"გილოცავ, შენ გამოიცანი სიტყვა {secret_word}. მცდელობა: {attempts}")
+        break
+    elif attempts == 10 :
+       print("თქვენ დამარცხდით :(")
+       break
