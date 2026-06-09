@@ -1,0 +1,10 @@
+year = 2026
+while True: 
+    choose = input("რამდენი წლის ხარ? ")
+    if choose.isdigit() :
+        year -= int(choose)
+        break
+    else:    
+        print("სცადეთ თავიდან")
+        continue
+print(year)

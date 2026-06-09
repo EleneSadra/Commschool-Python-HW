@@ -1,0 +1,5 @@
+mylist = range(100)
+i = 0 
+while i < 100:
+    print(i, "-", mylist[i] ** 2, "-", mylist[i] ** 3)
+    i += 1

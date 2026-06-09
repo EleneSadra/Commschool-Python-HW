@@ -1,0 +1,21 @@
+transactions = {
+    "გიო": "100",
+    "ნიკა": 50,
+    "აკაკი": "30a",
+    "ლევანი": 0,
+    "ანა": "70",
+    "მარი": True
+}
+total = 0
+
+for name, value in transactions.items():
+    if type(value) == str :
+        if value.isdigit() :
+            total += int(value)
+    elif type(value) == bool :
+        total += int(value)
+    elif type(value) == int :
+        total += value
+    else :
+        pass
+print(total)

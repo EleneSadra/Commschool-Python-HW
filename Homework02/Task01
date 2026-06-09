@@ -1,0 +1,25 @@
+product = { 
+    "რაკეტა" : 15000, 
+    "ხომალდი" : 25000, 
+    "ჩაფხუტი" : 5000
+    }
+
+total = 0 
+
+print("გამარჯობა თქვენ იმყოფებით მაღაზია SpaceX-ში")
+print("პროდუქტები:")
+while True: 
+    choose = input("რომელი ნივთი გინდა? ")
+    if choose in product:
+        total += product[choose]
+    elif choose == "მორჩა":
+        break
+    else :
+       print("არასწორი პროდუქტი")
+print("ჯამი:", total, "$")
+
+confirm = input("დავასრულოთ? კი/არა: ")
+if confirm == "კი":
+    print("მადლობა შეძენისთვის")
+else:
+    print("ნახვამდის")
