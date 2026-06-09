@@ -1,0 +1,16 @@
+# #8 ორი მოთამაშე იწყებს "გარბენს". უნდა შეამოწმო რომელი დაასრულებს ნაკლებ დროში
+
+from datetime import datetime, timedelta
+import random, time
+
+start = datetime.now()
+
+player1 = start + timedelta(seconds=random.randint(5,20))
+player2 = start + timedelta(seconds=random.randint(5,20))
+
+if player1 < player2:
+    print("Player 1 wins!")
+elif player2 < player1:
+    print("Player 2 wins!")
+else:
+    print("Tie!")

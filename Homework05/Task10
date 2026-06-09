@@ -1,0 +1,23 @@
+# \#10 საცავი - ჯუნიორ ჰაკერი :)
+
+# თამაში არის შემდეგი - გვაქვს სეიფი რომელსაც აქვს ციფრები 1-6 მდე პაროლი არ ვიცით, 
+# ყოველ დღე კომპიუტერი აგენერირებს ახალ პაროლს (შემთხვევითობის პრინციპით) პაროლი არის 4 ციფრიანი. 
+# ჩვენი მიზანია დავწეროთ ისეთი კოდი რომელიც შეამოწმებს ვარიანტებს და როცა მოხდება კომპიუტერის მიერ 
+# დაგენერირებული პაროლის დამთხვევა უნდა გამოვიტანოთ შეტყობინება "პაროლი სწორია, საცავი გახსნილია", 
+# აუცილებელი პირობაა გამოვიტანოთ ყველა ჩვენს მიერ ნაცადი პაროლი სანამ მივალთ სწორ ვარიანტამდე.
+
+import random
+from itertools import permutations, combinations
+
+ourset = (1, 2, 3, 4, 5, 6)
+
+possibilities = list(permutations(ourset, 4))
+generated_pswrd = random.choice(possibilities)
+guess = random.choice(possibilities)
+number_of_possibilities = len(possibilities)
+
+for attempt in possibilities:
+    print(attempt)
+    if attempt == generated_pswrd:
+        print(f"პაროლი სწორია, საცავი გახსნილია! {generated_pswrd}")
+        break
