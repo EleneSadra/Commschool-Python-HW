@@ -1,0 +1,14 @@
+# numbers = ["1", "2", "3", "4"] #int უნდა იყოს და ბრჭყალები არ უნდა 
+# total = 0
+
+# for n in numbers: 
+#    total += n #n ყოველთვის სტრინგი იქნება, ინტად უნდა გადვააქციოთ
+# print("Total:", total)
+
+#
+numbers = [1, 2, 3, 4] 
+total = 0
+
+for n in numbers:
+    total += int(n)
+print("Total:", total)

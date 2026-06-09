@@ -1,0 +1,13 @@
+secret = 11
+attempts = 0
+
+while True : 
+    guess = input("ჩაწერე რიცხვი: ")
+    attempts += 1
+    if guess == "exit":
+        break
+    elif int(guess) == secret :
+        print("გილოცავ, გამოიცანი 11 რიცხვი, მცდელობა: ", attempts)
+        break
+    elif int(guess) not in range(0, 51) :
+       print("რიცხვი სცდება არეალს")

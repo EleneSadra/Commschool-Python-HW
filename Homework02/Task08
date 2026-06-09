@@ -1,0 +1,12 @@
+data = ["5", 0, "3", True, "", 2, "x", False]
+total = 0
+
+for i in data:
+    if type(i) == str :
+        if i.isdigit() :
+            total += int(i)
+    elif type(i) == int :
+        total += i
+    else :
+        pass
+print(total)
