@@ -1,0 +1,8 @@
+# 5 შექმენი ყველა 3-ელემენტიანი კომბინაცია სიიდან \[1,2,3,4,5] (itertools-ის გამოყენებით)
+
+from itertools import permutations, combinations
+
+mylist = [1,2,3,4,5]
+perm = list(permutations(mylist, 3))
+
+print(perm)

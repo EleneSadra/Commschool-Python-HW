@@ -1,0 +1,18 @@
+#3 დაადგინე, არის თუ არა შეყვანილი წელი ნაკიანი, მომხმარებელს შემოჰყავს მხოლოდ წელი და 
+# ვეუბნებით არის თუ არა ნაკიანი
+
+
+
+import calendar
+
+while True:
+    myinput = input("Enter Year: ")
+
+    if not myinput.isdigit():
+            print("INVALID. Enter a valid year!")
+    elif calendar.isleap(int(myinput)):
+        print("LEAP YEAR")
+        break
+    else:
+        print("Not a leap year")
+        break

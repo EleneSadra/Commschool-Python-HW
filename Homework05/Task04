@@ -1,0 +1,10 @@
+# 4 დაითვალე რამდენი კვირაა დარჩენილი ახალ წლამდე, საწყისი თარიღი არის დღევანდელი დღე (ხელით არ გაწეროთ თარიღი)
+
+import calendar
+from datetime import date, datetime, timedelta
+
+today = date.today()
+weeknum = int(today.strftime("%W"))
+weeks_left = 52 - weeknum 
+
+print(weeks_left)
