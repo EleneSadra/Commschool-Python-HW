@@ -1,0 +1,8 @@
+#Problem 3
+group = int(1)
+name = "Python2023"
+count = int(35)
+male = int(22)
+female = int(13)
+students = ("Student1", "Student2", "Student3", "Student4", "Student5")
+ages = (24,33,15,45,42)

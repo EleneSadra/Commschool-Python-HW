@@ -1,0 +1,4 @@
+#Problem 8
+math = 45
+total = 60
+print("პროცენტი: " + str(45 / 60 * 100) + "%")
