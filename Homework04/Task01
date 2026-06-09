@@ -1,0 +1,134 @@
+# 1 დაწერეთ პაროლის გენერატორი.
+# დავალების შესრულებაში დაგეხმარებათ: random მოდული, while ან for ციკლი, list,
+# სტრიქონის ფორმატირება.
+# input ის მეშვეობით უნდა შეგვეძლოს მითითება რა სიგრძის პაროლი გვინდა და რა
+# სიმბოლეობიდან გენერირდება იგი: პაროლის სიგრძეს ირჩევს მომხმარებელი, უნდა თუ
+# არა სიმბოლოები, რიცხვები, დიდი/პატარა ასოები (ლათინურად) თუ ქართულს შემოიტანს
+# უნდა დაუწერო რომ “შეიყვანე მხოლოდ ლათინური ასოები”
+
+
+import random
+import string
+
+
+chars = []
+
+
+while True:
+   choose = input("will you choose components or fully randomize? (choose/randomize): ")
+   if choose in ["choose", "randomize"]:
+       break
+   print("invalid input! try again.")
+
+
+if choose == "randomize":
+   length = random.randint(8, 20)
+   chars.append(string.ascii_letters + string.digits + string.punctuation)
+
+
+elif choose == "choose":
+   while True:
+       length_choice = input("choose length or randomize? (choose/randomize): ")
+       if length_choice == "randomize":
+           length = random.randint(8, 20)
+           break
+       elif length_choice == "choose":
+           while True:
+               length = input("choose length: ")
+               if length.isdigit():
+                   length = int(length)
+                   break
+               print("invalid number! try again.")
+           break
+       else:
+           print("invalid input! try again.")
+
+
+   while True:
+       symbols = input("use symbols? (Y/N) ")
+       if symbols.upper() in ["Y", "N"]:
+           break
+       print("invalid input! try again.")
+   if symbols.upper() == "Y":
+       while True:
+           choose_symbols = input("choose/randomize? ")
+           if choose_symbols in ["choose", "randomize"]:
+               break
+           print("invalid input! try again.")
+       if choose_symbols == "choose":
+           while True:
+               chosen_symbols = input("choose your symbols (e.g. !@#$): ")
+               chosen_symbols = chosen_symbols.replace(",", "").replace(" ", "")
+               valid = True
+               for char in chosen_symbols:
+                   if char not in string.punctuation:
+                       print(f"'{char}' is not a valid symbol! try again.")
+                       valid = False
+                       break
+               if valid:
+                   chars.append(chosen_symbols)
+                   break
+       else:
+           chars.append(string.punctuation)
+
+
+   while True:
+       numbers = input("use numbers? (Y/N) ")
+       if numbers.upper() in ["Y", "N"]:
+           break
+       print("invalid input! try again.")
+   if numbers.upper() == "Y":
+       while True:
+           choose_numbers = input("choose/randomize? ")
+           if choose_numbers in ["choose", "randomize"]:
+               break
+           print("invalid input! try again.")
+       if choose_numbers == "choose":
+           while True:
+               chosen_numbers = input("choose your numbers (e.g. 1234): ")
+               chosen_numbers = chosen_numbers.replace(",", "").replace(" ", "")
+               valid = True
+               for char in chosen_numbers:
+                   if char not in string.digits:
+                       print(f"'{char}' is not a valid number! try again.")
+                       valid = False
+                       break
+               if valid:
+                   chars.append(chosen_numbers)
+                   break
+       else:
+           chars.append(string.digits)
+
+
+   while True:
+       letters = input("use letters? (Y/N) ")
+       if letters.upper() in ["Y", "N"]:
+           break
+       print("invalid input! try again.")
+   if letters.upper() == "Y":
+       while True:
+           choose_letters = input("choose/randomize? ")
+           if choose_letters in ["choose", "randomize"]:
+               break
+           print("invalid input! try again.")
+       if choose_letters == "choose":
+           while True:
+               chosen_letters = input("choose your letters (e.g. abcABC): ")
+               chosen_letters = chosen_letters.replace(",", "").replace(" ", "")
+               if not chosen_letters.isascii():
+                   print("შეიყვანე მხოლოდ ლათინური ასოები! try again.")
+               else:
+                   chars.append(chosen_letters)
+                   break
+       else:
+           chars.append(string.ascii_letters)
+
+
+if chars:
+   all_chars = "".join(chars)
+   password = ""
+   for _ in range(length):
+       password += random.choice(all_chars)
+   print(f"your password: {password}")
+else:
+   print("choose at least one option!")

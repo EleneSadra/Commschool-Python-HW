@@ -1,0 +1,36 @@
+# 3 დაწერე ფუნქცია (ფიბონაჩის რიგი) - *რა არის ფიბონაჩი - ბოლო ორი ელემენტის ჯამით ვამატებთ
+# ახალ რიცხვს*, სანამ სიგრძე არ გახდება მომხმარებლის მიერ შემოყვანილი რიცხვი, აუცილებლად
+# უნდა შემოიტანოს რიცხვი, სხვა რამის შემოტანის დროს უნდა შემოწმდეს რა შემოიტანა
+# მომხმარებელმა და უნდა დაუსახელო აღნიშნული და უთხრა რომ მხოლოდ რიცხვი შემოიტანოს. მაგ:
+# შემოიტანა სიმბოლო, უნდა უთხრა შენ შემოიტანე სიმბოლო არასწორია, მხოლოდ რიცხვი!
+
+
+#fn = fn-1 + fn-2
+
+
+import string
+def fibonacci(n):
+   fib = [0, 1]
+   for i in range(int(n) - 2):
+       fib.append(fib[-1] + fib[-2])
+   return fib
+
+
+while True:
+   fib_sequence = input("Your fibonacci sequence length: ")
+
+
+   is_digit = all(char in string.digits for char in fib_sequence)
+   is_symbol = any(char in string.punctuation for char in fib_sequence)
+   is_letter = any(char in string.ascii_letters for char in fib_sequence)
+
+
+
+
+   if is_digit:
+       print(fibonacci(fib_sequence))
+       break
+   elif is_symbol:
+       print("INVALID -> You input a Symbol. Please input a number ")
+   elif is_letter:
+       print("INVALID -> You input a Letter. Please input a number ")
