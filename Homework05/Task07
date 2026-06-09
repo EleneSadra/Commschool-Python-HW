@@ -1,0 +1,26 @@
+# \#7 თამაში უკუსვლაზე
+# კომპიუტერი ირჩევს შემთხვევითობის პრინციპით რიცხვს 1-20 მდე, 
+# მოთამაშეს აქვს მხოლოდ 5 წამი რიცხვის გამოსაცნობად, 
+# თუ 5 წამში სწორ რიცხვს ვერ შეიყვანს, 
+# თამაში სრულდება და გამოდის ტექსტი "დრო ამოიწურა, თქვენ დამარცხდით".
+
+from datetime import datetime, timedelta
+import time, random
+
+number = random.randint(1, 20)
+
+print("You have 5 seconds to guess the secret number! Good Luck")
+
+start_time = time.time()
+
+while time.time() - start_time < 5.0 :
+    guess = input("Your Guess: ")
+    time_taken = time.time() - start_time
+    if int(guess) != number:
+        print(f"Wrong Answer! try Again ") 
+    elif int(guess) == number:
+        print(f"Good Job! You Guessed Correctly! Number was: {number}. Time Taken: {round(time_taken, 2)} Seconds")
+        break
+
+if time_taken > 5.0:
+    print("Your Time is Up! You Lost")
