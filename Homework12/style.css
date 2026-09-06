@@ -1,0 +1,368 @@
+/* ============================================================
+   დავალება #12 — style.css
+   ყველა სავალდებულო CSS ბრძანება გამოყენებულია.
+   ძებნისთვის: font-size, color, background-color, font-family,
+   width, height, margin, padding, border, class, hover, animation
+   ============================================================ */
+
+:root {
+  --linen:   #F2EADC;   /* ლოგოს ტილოს ფონი */
+  --ink:     #4A3B32;   /* თბილი მუქი ყავისფერი — ტექსტი */
+  --fox:     #D9772F;   /* მელიის ნარინჯისფერი — მთავარი აქცენტი */
+  --teal:    #4E8A88;   /* ღრმა ცისფერ-მწვანე — თოკი ლოგოზე */
+  --rose:    #E0A3AC;   /* მტვრიანი ვარდისფერი — თოკი ლოგოზე */
+  --mustard: #E3AE43;   /* მდოგვისფერი — ყვითელი გორგალი */
+  --paper:   #FFFDF8;
+  --edge:    #E3D8C6;   /* ჩარჩოების ფერი */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', 'Trebuchet MS', sans-serif;   /* FONT-FAMILY */
+  background-color: var(--linen);                        /* BACKGROUND-COLOR */
+  color: var(--ink);                                    /* COLOR */
+  font-size: 17px;                                      /* FONT-SIZE */
+  margin: 0;                                            /* MARGIN */
+  padding: 0;                                           /* PADDING */
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fraunces', Georgia, serif;
+  margin: 0 0 0.4em 0;
+  line-height: 1.15;
+}
+
+h1 { font-size: 2.6rem; }
+h2 { font-size: 1.9rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.9rem; color: var(--teal); }
+
+p { margin: 0 0 1em 0; max-width: 68ch; }
+
+a { color: var(--fox); text-decoration: none; }
+a:hover { text-decoration: underline; }               /* HOVER */
+
+/* ---------- HEADER და ნავიგაცია ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 18px 32px;
+  background-color: var(--paper);
+  border-bottom: 3px solid var(--fox);           /* BORDER */
+}
+
+/* ლოგო — მარცხენა ზედა კუთხეში */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 56px;                                          /* WIDTH */
+  height: 56px;                                         /* HEIGHT */
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  display: block;
+}
+
+.logo-tag {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.nav a {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 9px 18px;
+  border-radius: 22px;
+  border: 2px solid transparent;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.nav a:hover {                                          /* HOVER */
+  background-color: var(--fox);
+  color: var(--linen);
+  text-decoration: none;
+}
+
+.nav a.active {
+  border: 2px solid var(--fox);
+  color: var(--fox);
+}
+
+/* ---------- ზოგადი განლაგება ---------- */
+main { max-width: 1040px; margin: 0 auto; padding: 40px 24px; }
+
+.intro { margin-bottom: 48px; }
+.intro h1 { color: var(--fox); }
+
+.section { margin: 56px 0; }
+
+.section-title {
+  border-bottom: 2px dashed var(--teal);
+  padding-bottom: 8px;
+  margin-bottom: 28px;
+}
+
+/* ---------- ორი სურათი სიმეტრიულად ---------- */
+.gallery {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 300px;
+  max-width: 420px;
+  background-color: var(--paper);
+  border: 2px solid var(--edge);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  border-radius: 10px;
+  background-color: var(--linen);
+}
+
+.card:hover {                                           /* HOVER */
+  border-color: var(--fox);
+}
+
+.card-caption { margin: 14px auto 0; text-align: left; }
+
+/* ---------- ანიმაციის სექცია ---------- */
+.animation-stage {
+  background-color: var(--paper);
+  border: 2px solid var(--edge);
+  border-radius: 14px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+/* ბაფთა, რომელიც ტრიალებს — ANIMATION */
+.yarn-spin {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 24px;
+  animation: roll 5s linear infinite;                   /* ANIMATION */
+}
+
+@keyframes roll {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ჯაჭვის ყულფები, რომლებიც თანმიმდევრობით ჩნდება */
+.chain { display: flex; justify-content: center; gap: 14px; margin-top: 8px; }
+
+.loop {
+  width: 26px;
+  height: 26px;
+  border: 4px solid var(--fox);
+  border-radius: 50% 50% 50% 0;
+  animation: pop 2.4s ease-in-out infinite;             /* ANIMATION */
+}
+
+.loop:nth-child(2) { border-color: var(--teal);   animation-delay: 0.3s; }
+.loop:nth-child(3) { border-color: var(--mustard); animation-delay: 0.6s; }
+.loop:nth-child(4) { border-color: var(--fox); animation-delay: 0.9s; }
+.loop:nth-child(5) { border-color: var(--teal);   animation-delay: 1.2s; }
+.loop:nth-child(6) { border-color: var(--mustard); animation-delay: 1.5s; }
+
+@keyframes pop {
+  0%, 100% { transform: translateY(0)     scale(1);   opacity: 0.45; }
+  50%      { transform: translateY(-12px) scale(1.15); opacity: 1; }
+}
+
+/* ---------- hobby.html ---------- */
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.hobby-grid img {
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  background-color: var(--paper);
+  border: 2px solid var(--edge);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.hobby-grid img:hover { border-color: var(--teal); }    /* HOVER */
+
+.hobby-text { max-width: 68ch; }
+
+/* ---------- contact.html — ორი დივი გვერდიგვერდ ---------- */
+.contact-wrap {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.contact-box {
+  flex: 1 1 320px;
+  background-color: var(--paper);
+  border: 2px solid var(--edge);
+  border-radius: 14px;
+  padding: 28px;
+}
+
+.contact-list { list-style: none; margin: 0; padding: 0; }
+
+.contact-list li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--edge);
+}
+
+.contact-list li:last-child { border-bottom: none; }
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.field {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 2px solid var(--edge);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background-color: var(--linen);
+}
+
+.field:hover  { border-color: var(--teal); }            /* HOVER */
+.field:focus  { outline: 3px solid var(--mustard); border-color: var(--teal); }
+
+.fake-input {
+  min-height: 110px;
+  color: #9C9098;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  background-color: var(--fox);
+  color: var(--linen);
+  border: 2px solid var(--fox);
+  border-radius: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.btn:hover {                                            /* HOVER */
+  background-color: var(--linen);
+  color: var(--fox);
+  text-decoration: none;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  background-color: var(--ink);
+  color: var(--linen);
+  margin-top: 64px;
+  padding: 40px 32px 24px;
+}
+
+.footer-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.footer-col { flex: 1 1 200px; }
+
+.footer-col h4 { color: var(--mustard); }
+
+.footer-col a { color: var(--linen); display: block; padding: 4px 0; }
+.footer-col a:hover { color: var(--mustard); }          /* HOVER */
+
+.socials { display: flex; gap: 12px; margin-top: 10px; }
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--mustard);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mustard);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.social-icon:hover {                                    /* HOVER */
+  background-color: var(--mustard);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-logo img { width: 34px; height: 34px; }
+
+.footer-bottom {
+  max-width: 1040px;
+  margin: 28px auto 0;
+  padding-top: 16px;
+  border-top: 1px solid #574A51;
+  font-size: 0.88rem;
+  color: #C0B4BB;
+}
+
+/* ---------- პატარა ეკრანები ---------- */
+@media screen and (max-width: 768px) {
+  .site-header { flex-direction: column; align-items: flex-start; }
+  h1 { font-size: 2rem; }
+  main { padding: 24px 16px; }
+  .nav a { margin-left: 0; margin-right: 6px; }
+}
+
+/* მოძრაობის შემცირების პატივისცემა */
+@media (prefers-reduced-motion: reduce) {
+  .yarn-spin, .loop { animation: none; }
+}
